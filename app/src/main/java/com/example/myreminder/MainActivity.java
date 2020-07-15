@@ -10,15 +10,20 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements
+View.OnClickListener{
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button seebacklog = findViewById(R.id.seebacklog);
+        seebacklog.setOnClickListener(this);
         createNotificationChannel();
     }
     public void setReminder(View view) {
@@ -42,6 +47,18 @@ private void createNotificationChannel(){
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
     }
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.seebacklog:
+            Intent toLog= new Intent(this,Backlog.class);
+            startActivity(toLog);
+            break;
+        }
+
     }
 }
 

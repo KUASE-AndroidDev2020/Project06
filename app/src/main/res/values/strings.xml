@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My reminder</string>
-<string-array name="day">
+    <string name="month">month</string>
+    <string-array name="day">
     <item>1</item>
     <item>2</item>
     <item>3</item>
